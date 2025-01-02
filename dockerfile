@@ -7,8 +7,9 @@ RUN apt-get update && apt-get install -y \
     nano \
     libonig-dev \
     libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip \
-    && docker-php-ext-enable pdo_mysql
+    libpq-dev \
+    && docker-php-ext-install pdo mbstring zip pdo_pgsql pgsql \
+    && docker-php-ext-enable pdo_pgsql pgsql
 
 # Copy Composer from official Composer image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

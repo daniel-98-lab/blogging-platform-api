@@ -10,6 +10,19 @@ services:
       - 443:443
     restart: 'no'
 
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      - POSTGRES_USER=daniel
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=blogging
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: 'no'
+
   blog:
     build:
       context: .
@@ -25,3 +38,7 @@ services:
     restart: 'no'
     depends_on:
       - balancer
+      - db
+
+volumes:
+  postgres_data:
