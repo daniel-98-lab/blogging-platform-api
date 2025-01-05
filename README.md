@@ -1,6 +1,7 @@
 # blogging-platform-api
 
-CRUD operations for a personal blogging platform
+CRUD operations for a personal blogging platform.
+
 Challenge from [blogging-platform-api](https://roadmap.sh/projects/blogging-platform-api)
 
 ## Features
